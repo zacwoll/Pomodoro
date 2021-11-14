@@ -4,6 +4,13 @@ This is a pomodoro app that I'm trying to build this week, I thought I would tak
 # Patch Notes
 ## TODO  Just punch down from this list and link to it from here
 
+## v0.1.3 Patch update
+- Added inner path to circle, that will rotate counter-clockwise from the top of the circle. Supposed to indicate "Time Remaining"
+### Important notes
+- we set the color from "COLOR_CODES.info.color"
+- We set the stroke-width to the same size as the original ring.
+- duration of the transition is set to 1 second so that it animates smoothly and corresponds with the time remaining in the time label. Next is animation of the circle
+
 ## v0.1.2 Patch update
 - Added function that increments the time passed (and thus decrements the time remaining)
 - Called function after document loads the .innerHTML function (same idea as onDocumentLoaded)
