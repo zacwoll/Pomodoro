@@ -4,6 +4,10 @@ This is a pomodoro app that I'm trying to build this week, I thought I would tak
 # Patch Notes
 ## TODO  Just punch down from this list and link to it from here
 
+## v0.1.2 Patch update
+- Added function that increments the time passed (and thus decrements the time remaining)
+- Called function after document loads the .innerHTML function (same idea as onDocumentLoaded)
+
 ## v0.1.1 Patch update
 - Added time inside the circle
 - Added time constant, time left and time limit

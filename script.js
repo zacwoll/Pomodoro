@@ -19,6 +19,20 @@ document.getElementById("app").innerHTML = `
   </span>
 </div>`
 
+startTimer();
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        // The amount of time passed increments by one
+        timePassed = timePassed += 1;
+        timeLeft = TIME_LIMIT - timePassed;
+
+        // The time left label is updated
+        document.getElementById("base-timer-label").innerHTML = format(timeLeft);
+    // Every 1000ms (1 second)
+    }, 1000);
+}
+
 function formatTimeLeft(time) {
     // The largest round integer less than or equal to the result of time divided by minute
     const minutes = Math.floor(time / 60);
