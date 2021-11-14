@@ -14,3 +14,24 @@ body {
     height: 100vh;
     overflow: hidden;
 }
+
+/* Sets the containers height and width */
+.base-timer {
+    position: relative;
+    height: 300px;
+    width: 300px;
+}
+
+/* Removes SVG styling that would hide the time label */
+.base-timer__circle {
+    /* fill removes the inside out to the edge */
+    fill: none;
+    /* stroke is the width of the edge */
+    stroke: none;
+}
+
+/* The grey background displaying the timer's progress */
+.base-timer__path-elapsed {
+    stroke-width: 7px;
+    stroke: grey;
+}
