@@ -4,6 +4,20 @@ This is a pomodoro app that I'm trying to build this week, I thought I would tak
 # Patch Notes
 ## TODO  Just punch down from this list and link to it from here
 
+## Patch 0.2.0 Patch update
+I installed a create-react-app application with redux and typescript! Wrote some very basic components to put into the app so I can get to work on a component by component level. I've broken up what I think the final app will look like into a series of components
+Like this:
+```
+App
+    NavBar
+    Hero
+    Wiki
+    Footer
+```
+Done!
+
+So We're going to start working on them but I don't really know how to write these components in TypeScript! Or test them, or utilize Redux ToolKit, so it'll be an adventure! Either way, we're moving forward with this plan!
+
 ## Breaking Changes report
 We're moving to A React-Redux-TypeScript based application! We're moving to React because we want to write the components for this application in reusable ways for the future, Redux because managing application state would be helpful, and TypeScript because sometimes you have to suffer in order to learn, and I really want to learn TypeScript. Here's the full rundown below:
 
