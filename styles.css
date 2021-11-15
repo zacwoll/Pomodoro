@@ -86,3 +86,11 @@ body {
 .base-timer__path-remaining.green {
   color: rgb(65, 184, 131);
 }
+
+.base-timer__path-remaining.orange {
+    color: orange;
+}
+
+.base-timer__path-remaining.red {
+    color: red;
+}

@@ -54,6 +54,29 @@ document.getElementById("app").innerHTML = `
 
 startTimer();
 
+function setRemainingPathColor(timeLeft) {
+    const { alert, warning, info } = COLOR_CODES;
+
+    if (timeLeft <= alert.threshold) {
+        document
+            .getElementById("base-timer-path-remaining")
+            .classList.remove(warning.color);
+        document
+        .getElementById("base-timer-path-remaining")
+        .classList.add(alert.color);
+
+
+    // If the remaining time is less than or equal to 10, remove the base color and apply the "warning" class
+    } else if (timeLeft <= warning.threshold) {
+        document
+            .getElementById("base-timer-path-remaining")
+            .classList.remove(info.color);
+        document
+            .getElementById("base-timer-path-remaining")
+            .classList.add(warning.color);
+    }
+}
+
 // Divides time left by the defined time limit
 function calculateTimeFraction() {
     const rawTimeFraction = timeLeft / TIME_LIMIT;
@@ -74,6 +97,10 @@ function setCircleDasharray() {
     .setAttribute("stroke-dasharray", circleDashArray);
 }
 
+function onTimesUp() {
+    clearInterval(timerInterval);
+}
+
 function startTimer() {
     timerInterval = setInterval(() => {
         // The amount of time passed increments by one
@@ -85,6 +112,11 @@ function startTimer() {
 
         // Every second we reset CircleDasharray
         setCircleDasharray();
+        setRemainingPathColor(timeLeft);
+
+        if (timeLeft === 0) {
+            onTimesUp();
+        }
     // Every 1000ms (1 second)
     }, 1000);
 }
@@ -92,6 +124,7 @@ function startTimer() {
 function formatTimeLeft(time) {
     // The largest round integer less than or equal to the result of time divided by minute
     const minutes = Math.floor(time / 60);
+    const hours = Math.floor(time / 3600);
 
     // Seconds are the remainder of the time divided by 60 (modulus operator)
     let seconds = time % 60;

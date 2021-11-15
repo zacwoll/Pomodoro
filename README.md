@@ -4,6 +4,10 @@ This is a pomodoro app that I'm trying to build this week, I thought I would tak
 # Patch Notes
 ## TODO  Just punch down from this list and link to it from here
 
+## v0.1.5 Patch update
+- Added setRemainingPathColor function, which turns the ring from green to orange and orange to red as we approach the end of the timer.
+- This concludes the basic functionality of the timer! Now we're converting the timer to specifically a pomodoro timer.
+
 ## v0.1.4 Patch update
 - Added setCircleDasharray method inside our time interval, some math in this one folks, the current size of the element is 300px, so the circumference of the circle, what's being reduced to zero, is 2 * pi * r, and with r = 45px that comes out to 2 * pi * 45 = 282.6 ~= 283
 
