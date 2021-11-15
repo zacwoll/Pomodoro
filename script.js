@@ -2,9 +2,11 @@
 const TIME_LIMIT = 20;
 
 // Warning occurs at 10s
-const WARNING_THRESHOLD = 10;
+// or 50% of circle
+const WARNING_THRESHOLD = TIME_LIMIT / 2;
 // Alert occurs at 5s
-const ALERT_THRESHOLD = 5;
+// or 25% of circle
+const ALERT_THRESHOLD = TIME_LIMIT / 4;
 
 const COLOR_CODES = {
     info: {
@@ -29,6 +31,9 @@ let timeLeft = TIME_LIMIT;
 
 // This is the assign circle function.
 document.getElementById("app").innerHTML = `
+<div class="set-timer-container">
+    <div class=""></div>
+</div>
 <div class="base-timer">
   <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <g class="base-timer__circle">
