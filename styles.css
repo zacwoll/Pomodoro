@@ -82,3 +82,7 @@ body {
   /* Flips the svg and makes the animation to move left-to-right */
   transform: scaleX(-1);
 }
+
+.base-timer__path-remaining.green {
+  color: rgb(65, 184, 131);
+}

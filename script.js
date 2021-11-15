@@ -1,10 +1,26 @@
 // Start with an initial value of 20 seconds
 const TIME_LIMIT = 20;
+
+// Warning occurs at 10s
+const WARNING_THRESHOLD = 10;
+// Alert occurs at 5s
+const ALERT_THRESHOLD = 5;
+
 const COLOR_CODES = {
     info: {
         color: "green"
+    },
+    warning: {
+        color: "orange",
+        threshold: WARNING_THRESHOLD
+    },
+    alert: {
+        color: "red",
+        threshold: ALERT_THRESHOLD
     }
-}
+};
+
+let remainingPathColor = COLOR_CODES.info.color;
 
 // Initially, no time has passed, but this will count up
 // and subtract from the TIME_LIMIT
@@ -38,6 +54,26 @@ document.getElementById("app").innerHTML = `
 
 startTimer();
 
+// Divides time left by the defined time limit
+function calculateTimeFraction() {
+    const rawTimeFraction = timeLeft / TIME_LIMIT;
+    // Reduces the length of the bar as it counds down
+    return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+}
+
+// A little math, r of this circle is 45 so circumference is
+// C = 2 * pi * r = 2 * pi * 45 = 282,6 => 3
+const FULL_DASH_ARRAY = 283;
+
+// Update the dasharray value as time passes
+function setCircleDasharray() {
+    const circleDashArray = `${(
+        calculateTimeFraction() * FULL_DASH_ARRAY
+    ).toFixed(0)} 283`;
+    document.getElementById("base-timer-path-remaining")
+    .setAttribute("stroke-dasharray", circleDashArray);
+}
+
 function startTimer() {
     timerInterval = setInterval(() => {
         // The amount of time passed increments by one
@@ -45,7 +81,10 @@ function startTimer() {
         timeLeft = TIME_LIMIT - timePassed;
 
         // The time left label is updated
-        document.getElementById("base-timer-label").innerHTML = format(timeLeft);
+        document.getElementById("base-timer-label").innerHTML = formatTimeLeft(timeLeft);
+
+        // Every second we reset CircleDasharray
+        setCircleDasharray();
     // Every 1000ms (1 second)
     }, 1000);
 }

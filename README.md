@@ -4,6 +4,13 @@ This is a pomodoro app that I'm trying to build this week, I thought I would tak
 # Patch Notes
 ## TODO  Just punch down from this list and link to it from here
 
+## v0.1.4 Patch update
+- Added setCircleDasharray method inside our time interval, some math in this one folks, the current size of the element is 300px, so the circumference of the circle, what's being reduced to zero, is 2 * pi * r, and with r = 45px that comes out to 2 * pi * 45 = 282.6 ~= 283
+
+We calculate the elapsed time out of set time fraction and multiply it against this number sets the length of the first dash in the Dasharray property.
+
+Effectively, the green part is the first dash, and the grey is the rest, so the length of the first dash is set to the circumference of the circle and shrank down to zero, while the length of every dash is set to this 283 circumference
+
 ## v0.1.3 Patch update
 - Added inner path to circle, that will rotate counter-clockwise from the top of the circle. Supposed to indicate "Time Remaining"
 ### Important notes
