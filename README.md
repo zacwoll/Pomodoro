@@ -4,6 +4,37 @@ This is a pomodoro app that I'm trying to build this week, I thought I would tak
 # Patch Notes
 ## TODO  Just punch down from this list and link to it from here
 
+## Breaking Changes report
+We're moving to A React-Redux-TypeScript based application! We're moving to React because we want to write the components for this application in reusable ways for the future, Redux because managing application state would be helpful, and TypeScript because sometimes you have to suffer in order to learn, and I really want to learn TypeScript. Here's the full rundown below:
+
+### Next Steps
+I now have a basic timer application that will count down from a preset time and change colors on the way to the end. But I really want a pomodoro timer app, with the settings customizable and I want to collect some data about my work hours.
+
+So exclusively talking front-end, I want to host everything on a single-page application such as [pomofocus.io](pomofocus.io), which handles everything I was talking about in a nice manner. This project is begging for react I think, although I could set this up with vanilla JS, it would require a bunch of containers and buttons and modals all organized in one project, or I could use react, and allow the natural structure of react to describe my project. It also could be a good candidate for writing things in TypeScript. React would also help by applying Redux, which could facilitate application state.
+
+With Redux, a user could log in and have it's data populated to the report modal through dispatch props.
+
+React, Redux, TypeScript seem like the way to go.
+I think writing all of this would be hard in vanilla JS, but not impossible.
+
+Breaking it into sections, there's a
+<Navbar> that includes a progress bar
+
+<TimeDisplay> that shows either the Pomodoro, the short break or the long break time remaining, including a [STOP] and a [>|] icon
+
+<Tasks> section that adds To-Do's that provide a focus for the pomodoro in question
+
+<Wiki> section that explains what a Pomodoro is and how this app helps you focus
+
+<Footer> section that holds contact information and privacy policy.
+
+This means I should hold all the data in PostgreSQL again, and write an express server to pop it out all the user data when it's requested. Maybe run some data science on it too.
+
+## v0.1.6 Path update
+Very Minor update, we're moving towards setting the timer value through an input element and a button. That way we can set out pomodoro time in a custom manner
+- set Warning time to 50% of TIME_LIMIT
+- set alert time to 25% of TIME_LIMIT
+
 ## v0.1.5 Patch update
 - Added setRemainingPathColor function, which turns the ring from green to orange and orange to red as we approach the end of the timer.
 - This concludes the basic functionality of the timer! Now we're converting the timer to specifically a pomodoro timer.
