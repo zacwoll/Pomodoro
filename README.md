@@ -4,6 +4,11 @@ This is a pomodoro app that I'm trying to build this week, I thought I would tak
 # Patch Notes
 ## TODO  Just punch down from this list and link to it from here
 
+## Patch 0.2.1 Patch update
+Installed Styled-Components So I could start building how the web app looks. Once I started adding styles to the navbar I started settling into a pattern I can use to paint the rest of the components. I'm sure there's a way to develop components more efficiently, but right now I have split concerns into different features of the app and I'm adding css to make them look right, we'll continue this pattern until we start looking right. Then we try to figure out the logic.
+
+So TypeScript bug fixed, I couldn't import a .png file to the project, eventually, adding a globals.d.ts file to the /src folder and defining what a .png file is and what can come out of it solved the problem! I also had another issue where TypeScript didn't know what to do with a prop I had passed to what I thought was a styled-components img tag. The 'src' prop was broken because it was actually a styled-components div tag, and it wasn't used to having 'src' as a prop. I went to create an interface that a component could implement and then be styled before I realized just changing the tag from 'div' to 'img' told TypeScript what to expect from such a tag. Enlightening problem though! Encouraging that I can employ TypeScript and not encounter any walls I can't hurdle.
+
 ## Patch 0.2.0 Patch update
 I installed a create-react-app application with redux and typescript! Wrote some very basic components to put into the app so I can get to work on a component by component level. I've broken up what I think the final app will look like into a series of components
 Like this:
