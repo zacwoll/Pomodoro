@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import styled from 'styled-components';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 /*
 // The action imports from the counterSlice reducer
@@ -29,10 +29,19 @@ export function Footer () {
 
     // Here I'll discuss what I believe the nav component should receive
 
+    const Footer = styled.footer`
+        margin-top: 40px;
+        border-top: 2px solid #efefef;
+        text-align: center;
+        padding-top: 30px;
+        color: hsl(357, 12%, 42%);
+        padding-bottom: 20px;
+    `;
+
     return (
-        <footer>
+        <Footer>
             <p>Made with love by Zac Woll</p>
             <p>2021</p>
-        </footer>
+        </Footer>
     );
 }

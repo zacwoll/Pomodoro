@@ -4,6 +4,9 @@ This is a pomodoro app that I'm trying to build this week, I thought I would tak
 # Patch Notes
 ## TODO  Just punch down from this list and link to it from here
 
+## Patch 0.2.3 Patch update
+Filled in all the css for the Wiki section! (almost)! With nearly all the styling in place it's about time to start adding function. I also need to get icons and put them in their respective containers. Even more things are jumping out to be grouped, all the text is the same color, for example. The Wiki section needs a custom unordered and ordered list @.@
+
 ## Patch 0.2.2 Patch update
 I started replacing all the structure divs with Styled Components. Once I have all the pieces I think I can start splitting them off into different, localized components. It also may start making sense to develop base components that what I have can extend, for example I'm reusing font-size a lot, that should be set higher up the chain. There's also a bunch of really standard margin, padding, color settings that could be generalized.
 

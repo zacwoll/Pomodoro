@@ -51,6 +51,9 @@ export function Hero () {
         border-radius: 6px;
         margin-bottom: 20px;
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     `;
 
     // We'll add some JavaScript to show which of these Timer Options is highlighted.
@@ -83,6 +86,8 @@ export function Hero () {
         font-size: 120px;
         font-weight: bold;
         margin-top: 20px;
+        margin-bottom: 20px; // I have no idea why this has margin on the bottom but it needs to be smaller!
+        color: white;
         @media (max-width: 680px) {
             font-size: 100px;
         }
@@ -90,14 +95,14 @@ export function Hero () {
 
     const TimeControlsGroup = styled.div`
         position: relative;
-        display: inline-block;
+        display: flex;
         width: 100%;
     `;
 
-    const StartTimerButton = styled.div`
+    const StartTimerButton = styled.button`
         cursor: pointer;
         border: none;
-        margin: 20px 0px 0px;
+        margin: 20px auto 0px;
         padding: 0px 12px;
         border-radius: 4px;
         box-shadow: rgb(235 235 235) 0px 6px 0px;
@@ -169,11 +174,11 @@ export function Hero () {
                         <TimerOptionTab id="LongBreak">Long Break</TimerOptionTab>
                     </TimerOptionsGroup>
 
-                    <TimeRemainingText>
+                    <TimeRemainingText>25:00
                     </TimeRemainingText>
                     <ProgressBar></ProgressBar>
                     <TimeControlsGroup>
-                        <StartTimerButton></StartTimerButton>
+                        <StartTimerButton>Start</StartTimerButton>
                         <SkipEndButtonContainer>
                             <SkipEndButton>
                             <SkipEndIcon alt="Skip" src="" />
