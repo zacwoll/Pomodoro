@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+:root {
+  --brand-color: #e71f03;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -13,6 +17,10 @@ body {
     justify-content: center;
     height: 100vh;
     overflow: hidden;
+}
+
+.App section {
+  background-color: var(--brand-color);
 }
 
 .base-timer {

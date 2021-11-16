@@ -8,8 +8,10 @@ import { Footer } from './features/footer/Footer';
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <Hero />
+      <section>
+        <NavBar />
+        <Hero />
+      </section>
       <Wiki />
       <Footer />
     </div>

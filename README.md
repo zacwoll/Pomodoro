@@ -4,6 +4,11 @@ This is a pomodoro app that I'm trying to build this week, I thought I would tak
 # Patch Notes
 ## TODO  Just punch down from this list and link to it from here
 
+## Patch 0.2.2 Patch update
+I started replacing all the structure divs with Styled Components. Once I have all the pieces I think I can start splitting them off into different, localized components. It also may start making sense to develop base components that what I have can extend, for example I'm reusing font-size a lot, that should be set higher up the chain. There's also a bunch of really standard margin, padding, color settings that could be generalized.
+
+So I swapped in all the Timer stylings from Pomofocus, and then I realized I could split up my "Hero" component into two parts, a Timer, and a Tasks component. I'm excited to make this change soon! I think I'm going to skip it for now, and finish the Wiki and the Footer first.
+
 ## Patch 0.2.1 Patch update
 Installed Styled-Components So I could start building how the web app looks. Once I started adding styles to the navbar I started settling into a pattern I can use to paint the rest of the components. I'm sure there's a way to develop components more efficiently, but right now I have split concerns into different features of the app and I'm adding css to make them look right, we'll continue this pattern until we start looking right. Then we try to figure out the logic.
 
