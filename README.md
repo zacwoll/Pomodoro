@@ -4,6 +4,16 @@ This is a pomodoro app that I'm trying to build this week, I thought I would tak
 # Patch Notes
 ## TODO  Just punch down from this list and link to it from here
 
+## Patch 0.2.4 Patch update
+All the CSS got filled in (more or less) So I branched out to working on logic, fought a couple of TypeScript errors, and now I'm heading home to enjoy a good beer. Here's what we added since the wiki css
+
+- Added a little Footer css
+- Added icons for the navbar tabs
+- Reworked the Hero component to dynamically render the timers, & hold the current timer in state
+- Added Redux!! Implemented the first version of state, with the timer lengths, and created selectors to pull those timer lengths out of redux. Not super sure that this works, turns out we need to figure out how to add Redux DevTools to this application, it's been a minute.
+- Defined a number of Timer-based types to make TypeScript happy, I'm really thrilled with the errors that TypeScript raised, they allowed me to narrow down the options for the variables I used. I'm using a union of 3 simple strings for the state and the rendered components  'Pomodoro' | 'Short Break' | 'Long Break' and specially designed interface for the redux store as well.
+- Imported FontAwesome via CDN
+
 ## Patch 0.2.3 Patch update
 Filled in all the css for the Wiki section! (almost)! With nearly all the styling in place it's about time to start adding function. I also need to get icons and put them in their respective containers. Even more things are jumping out to be grouped, all the text is the same color, for example. The Wiki section needs a custom unordered and ordered list @.@
 

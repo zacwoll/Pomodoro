@@ -1,31 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
-/*
-// The action imports from the counterSlice reducer
+
+// selectPomodoroLength?
 import {
-    decrement,
-    increment,
-    incrementByAmount,
-    incrementAsync,
-    incrementIfOdd,
-    selectCount,
-} from './counterSlice';
-// The styles imports from a css module
-import styles from './Counter.module.css';
-*/
+    selectPomodoroTimer,
+    selectShortBreakTimer,
+    selectLongBreakTimer
+    } from './timerSlice';
+
 export function Hero () {
     // This would call in the count selector action that returns the count
     // const count = useAppSelector(selectCount);
+    const pomodoroTimerLength = useAppSelector(selectPomodoroTimer);
+    const shortBreakTimerLength = useAppSelector(selectShortBreakTimer)
+    const longBreakTimerLength = useAppSelector(selectLongBreakTimer);
 
     // This would call the dispatch to affect change to the count value
     const dispatch = useAppDispatch();
 
     // This would use state to store the incrementing amount
-    // const [ incrementAmount, setIncrementAmount ] = useState('2');
 
-    // This defines the increment value as either a Number (incrementAmount) and zero
-    // const incrementValue = Number(incrementAmount) || 0;
+    type TimerDisplayType =
+        'Pomodoro' | 'Short Break' | 'Long Break';
+    const [ timerDisplay, setTimerDisplay ] = useState<TimerDisplayType>('Pomodoro');
+
+    const toggleActiveTimer = (activeTimerDisplay: TimerDisplayType) => {
+        setTimerDisplay(activeTimerDisplay);
+    }
+
+    const timerDisplayOptions: TimerDisplayType[] = [
+        'Pomodoro',
+        'Short Break',
+        'Long Break',
+    ]
 
     // Components used in the app
     const Hero = styled.div`
@@ -62,6 +70,13 @@ export function Hero () {
         justify-content: center;
         text-align: center;
         align-items: center;
+        min-width: 300px;
+        width: 75%;
+
+        .active {
+            background-color: rgba(0, 0, 0, 0.15);
+            font-weight: bold;
+        }
     `;
 
     const TimerOptionTab = styled.button`
@@ -74,13 +89,9 @@ export function Hero () {
         cursor: pointer;
         background: none;
         font-weight: 300;
-        width: min-content;
+        width: 32%;
+        height: 45px;
     `;
-
-    const TimerOptionTabSelected = styled(TimerOptionTab)`
-        background-color: rgba(0, 0, 0, 0.15);
-        font-weight: bold;
-    `
 
     const TimeRemainingText = styled.h1`
         font-size: 120px;
@@ -145,7 +156,7 @@ export function Hero () {
         transition: all 0.2s ease-out 0s;
     `
 
-    const SkipEndIcon = styled.img`
+    const SkipEndIcon = styled.i`
         width: 22px;
         opacity: 0.9;
     `
@@ -164,14 +175,27 @@ export function Hero () {
     `
 
 
+
+
     return (
         <Hero>
             <TimeDisplayContainer>
                 <TimeDisplay>
                     <TimerOptionsGroup>
-                        <TimerOptionTabSelected id="Pomodoro">Pomodoro</TimerOptionTabSelected>
-                        <TimerOptionTab id="ShortBreak">Short Break</TimerOptionTab>
-                        <TimerOptionTab id="LongBreak">Long Break</TimerOptionTab>
+                        { timerDisplayOptions.map((option) => {
+                            {if (option === timerDisplay) {
+                                return <TimerOptionTab
+                                    id={option}
+                                    onClick={() => toggleActiveTimer(option)}
+                                    className="active"
+                                    >{option}</TimerOptionTab>
+                            } else {
+                                return <TimerOptionTab
+                                    id={option}
+                                    onClick={() => toggleActiveTimer(option)}
+                                    >{option}</TimerOptionTab>
+                            }}
+                        })}
                     </TimerOptionsGroup>
 
                     <TimeRemainingText>25:00
@@ -181,7 +205,7 @@ export function Hero () {
                         <StartTimerButton>Start</StartTimerButton>
                         <SkipEndButtonContainer>
                             <SkipEndButton>
-                            <SkipEndIcon alt="Skip" src="" />
+                            <SkipEndIcon className="fa-solid fa-forward-step" />
                             </SkipEndButton>
                         </SkipEndButtonContainer>
                     </TimeControlsGroup>
@@ -192,7 +216,7 @@ export function Hero () {
             <div className="TaskDisplay">
                 <p>Tasks</p>
                 <br />
-                <div className="TaskArea"></div>
+                <div className="TaskArea">{timerDisplay}</div>
                 <div className="AddTask"></div>
                 <div className="Projections"></div>
             </div>

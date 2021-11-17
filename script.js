@@ -67,8 +67,8 @@ function setRemainingPathColor(timeLeft) {
             .getElementById("base-timer-path-remaining")
             .classList.remove(warning.color);
         document
-        .getElementById("base-timer-path-remaining")
-        .classList.add(alert.color);
+            .getElementById("base-timer-path-remaining")
+            .classList.add(alert.color);
 
 
     // If the remaining time is less than or equal to 10, remove the base color and apply the "warning" class

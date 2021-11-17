@@ -86,13 +86,13 @@ export function NavBar () {
     `;
 
     // Report Modal Icon
-    const GenericNavButtonIcon = styled.img`
+    const GenericNavButtonIcon = styled.i`
         width: 16px;
-        height: 16px;
+        height: 14px;
 
         @media (max-width: 576px) {
             width: 18px;
-            height: 18px;
+            height: 12px;
         }
     `;
 
@@ -126,17 +126,17 @@ export function NavBar () {
             </Brand>
             <NavButtonContainer>
                 <GenericNavButton id="ReportButton">
-                    <GenericNavButtonIcon src="" alt="Open Report" />
+                    <GenericNavButtonIcon className="fas fa-chart-line" />
                     <GenericNavButtonText>Report</GenericNavButtonText>
                 </GenericNavButton>
 
                 <GenericNavButton id="SettingsButton">
-                    <GenericNavButtonIcon src="" alt="Open Settings" />
+                    <GenericNavButtonIcon className="fas fa-cog" />
                     <GenericNavButtonText>Settings</GenericNavButtonText>
                 </GenericNavButton>
 
                 <GenericNavButton id="LoginButton">
-                    <GenericNavButtonIcon src="" alt="Log In" />
+                    <GenericNavButtonIcon className="fas fa-sign-in-alt" />
                     <GenericNavButtonText>Login</GenericNavButtonText>
                 </GenericNavButton>
             </NavButtonContainer>
